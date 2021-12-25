@@ -12,17 +12,17 @@ RUN go mod download
 
 COPY . .
 
-RUN go build -o sap-api-integrations-service-order-reads
+RUN go build -o sap-api-integrations-maintenance-order-reads
 
 # Runtime Container
 FROM alpine:3.14
 RUN apk add --no-cache libc6-compat
-ENV SERVICE=sap-api-integrations-service-order-reads \
+ENV SERVICE=sap-api-integrations-maintenance-order-reads \
     APP_DIR="${AION_HOME}/${POSITION}/${SERVICE}"
 
 WORKDIR ${AION_HOME}
 
-COPY --from=builder /go/src/github.com/latonaio/sap-api-integrations-service-order-reads .
+COPY --from=builder /go/src/github.com/latonaio/sap-api-integrations-maintenance-order-reads .
 COPY --from=builder /go/src/github.com/latonaio/sample.json .
 
-CMD ["./sap-api-integrations-service-order-reads"]
+CMD ["./sap-api-integrations-maintenance-order-reads"]

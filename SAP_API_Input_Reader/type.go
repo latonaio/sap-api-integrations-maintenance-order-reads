@@ -5,8 +5,8 @@ type EC_MC struct {
 	Result        bool   `json:"result"`
 	RedisKey      string `json:"redis_key"`
 	Filepath      string `json:"filepath"`
-	ServiceOrder struct {
-		ServiceOrder              string      `json:"document_no"`
+	MaintenanceOrder struct {
+		MaintenanceOrder          string      `json:"document_no"`
 		Plant                     string      `json:"deliver_to"`
 		OrderQuantity             string      `json:"quantity"`
 		PickedQuantity            string      `json:"picked_quantity"`
@@ -47,18 +47,18 @@ type EC_MC struct {
 	Supplier                          string `json:"plant/supplier"`
 	Stock                             string `json:"stock"`
 	SalesOrderType                    string `json:"document_type"`
-	ServiceOrderNumber                string `json:"document_no"`
+	MaintenanceOrderNo                string `json:"document_no"`
 	ScheduleLineDeliveryDate          string `json:"planned_date"`
 	ValidatedDate                     string `json:"validated_date"`
     Deleted                           bool   `json:"deleted"`
 }
 
 type SDC struct {
-	ConnectionKey string `json:"connection_key"`
-	Result        bool   `json:"result"`
-	RedisKey      string `json:"redis_key"`
-	Filepath      string `json:"filepath"`
-	MaintenanceOrder    struct {
+	ConnectionKey    string `json:"connection_key"`
+	Result           bool   `json:"result"`
+	RedisKey         string `json:"redis_key"`
+	Filepath         string `json:"filepath"`
+	MaintenanceOrder struct {
 		MaintenanceOrder               string `json:"MaintenanceOrder"`
 		ServiceOrderType               string `json:"ServiceOrderType"`
 		SalesOrganization              string `json:"SalesOrganization"`
@@ -74,7 +74,7 @@ type SDC struct {
 		LastChangeDateTime             string `json:"LastChangeDateTime"`
 		PurchaseOrderByCustomer        string `json:"PurchaseOrderByCustomer"`
 		CustomerPurchaseOrderDate      string `json:"CustomerPurchaseOrderDate"`
-		SalesOrderDate                 string `json:"SalesOrderDate"`
+		ServiceOrderDate               string `json:"ServiceOrderDate"`
 		TotalNetAmount                 string `json:"TotalNetAmount"`
 		OverallDeliveryStatus          string `json:"OverallDeliveryStatus"`
 		TotalBlockStatus               string `json:"TotalBlockStatus"`
@@ -116,7 +116,7 @@ type SDC struct {
 		ServiceOrderItem struct {
 			ServiceOrderItem            string `json:"ServiceOrderItem"`
 			ServiceOrderItemCategory    string `json:"ServiceOrderItemCategory"`
-			SalesOrderItemText          string `json:"SalesOrderItemText"`
+			ServiceOrderItemText        string `json:"ServiceOrderItemText"`
 			PurchaseOrderByCustomer     string `json:"PurchaseOrderByCustomer"`
 			Material                    string `json:"Material"`
 			MaterialByCustomer          string `json:"MaterialByCustomer"`
@@ -186,8 +186,8 @@ type SDC struct {
 			} `json:"ItemPricingElement"`
 		} `json:"ServiceOrderItem"`
 	} `json:"MaintenanceOrder"`
-	APISchema              string `json:"api_schema"`
-	Accepter               []string `json:"accepter"`
-	MaintenanceOrderNumber string `json:"maintenance_order"`
-	Deleted                bool   `json:"deleted"`
+	APISchema          string   `json:"api_schema"`
+	Accepter           []string `json:"accepter"`
+	MaintenanceOrderNo string   `json:"maintenance_order"`
+	Deleted            bool     `json:"deleted"`
 }
